@@ -21,9 +21,8 @@
   --ink-soft: #7A5C48;          /* muted body text */
   --ink-italic: #5A3F2A;        /* italic emphasis */
 
-  --font-display: 'Italiana', 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-caps: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
   --font-arabic: 'Amiri', 'Noto Naskh Arabic', serif;
   --font-urdu: 'Noto Nastaliq Urdu', 'Amiri', serif;
 
@@ -109,13 +108,27 @@ section {
 
 .section-title {
   font-family: var(--font-display);
-  font-weight: 400;
-  color: var(--ink);
-  letter-spacing: 0.14em;
+  font-weight: 500;
+  color: var(--maroon);
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  font-size: 18px;
-  margin: 0 0 8px;
+  font-size: 14px;
+  margin: 0 0 32px;
+  position: relative;
+  display: inline-block;
+  padding: 0 36px;
 }
+.section-title::before,
+.section-title::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+.section-title::before { left: 0; }
+.section-title::after  { right: 0; }
 .section-title + .events-date,
 .section-title + .invite-body {
   margin-top: 0;
@@ -155,7 +168,7 @@ section {
 }
 
 .eyebrow {
-  font-family: var(--font-caps);
+  font-family: var(--font-display);
   font-size: 11px;
   letter-spacing: 0.4em;
   text-transform: uppercase;
@@ -185,18 +198,12 @@ section {
 }
 .name-en {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(36px, 9vw, 60px);
+  font-weight: 500;
+  font-size: clamp(28px, 7vw, 48px);
   color: var(--ink);
   margin: 0;
-  letter-spacing: 0.02em;
-  line-height: 1;
-}
-.name-en em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 300;
-  color: var(--ink-italic);
+  letter-spacing: 0.06em;
+  line-height: 1.1;
 }
 .amp {
   color: var(--gold);
@@ -216,11 +223,11 @@ section {
 }
 .hero-date-big {
   font-family: var(--font-display);
-  font-size: clamp(28px, 7.5vw, 42px);
-  color: var(--ink);
-  letter-spacing: 0.18em;
+  font-size: clamp(28px, 7vw, 44px);
+  color: var(--maroon);
+  letter-spacing: 0.15em;
   margin: 4px 0 0;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 /* =========================================================
@@ -245,14 +252,13 @@ section {
 }
 .cd-num {
   font-family: var(--font-display);
-  font-size: clamp(26px, 6vw, 34px);
-  color: var(--ink);
-  font-weight: 400;
+  font-size: clamp(28px, 6vw, 38px);
+  color: var(--maroon);
+  font-weight: 600;
   line-height: 1;
-  letter-spacing: 0.04em;
 }
 .cd-label {
-  font-family: var(--font-caps);
+  font-family: var(--font-display);
   font-size: 9px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -302,7 +308,7 @@ section {
   margin: 0 0 16px;
 }
 .verse-citation {
-  font-family: var(--font-caps);
+  font-family: var(--font-display);
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -340,7 +346,7 @@ section {
   padding: 8px 12px;
 }
 .family-side {
-  font-family: var(--font-caps);
+  font-family: var(--font-display);
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -348,12 +354,12 @@ section {
   margin: 0 0 10px;
 }
 .parent-name {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: 22px;
   color: var(--ink);
-  margin: 4px 0;
-  font-weight: 400;
-  letter-spacing: 0.04em;
+  margin: 6px 0;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 .family-divider {
   color: var(--gold);
@@ -384,11 +390,11 @@ section {
 }
 .invite-couple-en {
   font-family: var(--font-display);
-  font-size: clamp(20px, 4.5vw, 28px);
+  font-size: clamp(18px, 4vw, 24px);
   color: var(--ink);
-  margin: 8px 0 0;
-  letter-spacing: 0.06em;
-  font-weight: 400;
+  margin: 4px 0 0;
+  letter-spacing: 0.1em;
+  font-weight: 500;
 }
 
 /* =========================================================
@@ -441,10 +447,10 @@ section {
 }
 .event-name {
   font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 500;
   color: var(--ink);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   margin: 0 0 16px;
 }
@@ -470,10 +476,11 @@ section {
 }
 .event-venue {
   font-family: var(--font-display);
-  font-size: 18px;
-  color: var(--ink);
-  letter-spacing: 0.06em;
+  font-size: 16px;
+  color: var(--maroon);
+  letter-spacing: 0.08em;
   margin: 6px 0 4px;
+  font-weight: 500;
 }
 .event-address {
   font-size: 14px;
@@ -500,7 +507,7 @@ section {
   align-items: center;
   gap: 8px;
   padding: 11px 22px;
-  font-family: var(--font-caps);
+  font-family: var(--font-display);
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -530,74 +537,37 @@ section {
 }
 
 /* =========================================================
-   Venue photo block
+   Venue map (embedded Google Maps)
    ========================================================= */
-.venue-photo {
+.venue-map {
   margin: 60px auto 0;
   max-width: 560px;
 }
 .venue-heading {
   font-family: var(--font-display);
-  font-size: 22px;
-  color: var(--ink);
-  letter-spacing: 0.12em;
+  font-size: 14px;
+  color: var(--maroon);
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  margin: 0 0 18px;
-  font-weight: 400;
+  margin: 0 0 20px;
+  font-weight: 500;
 }
-.venue-frame {
+.map-frame {
   border: 1px solid var(--gold-soft);
-  padding: 10px;
+  padding: 8px;
   background: var(--bg-card);
   position: relative;
   aspect-ratio: 16 / 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
+  box-shadow: 0 4px 14px rgba(107, 31, 42, 0.06);
 }
-.venue-frame img {
+.map-frame iframe {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+  border: 0;
+  filter: saturate(0.92);
 }
-.venue-placeholder {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  color: var(--gold);
-  text-align: center;
-  padding: 24px;
-}
-.venue-placeholder p {
-  font-family: var(--font-display);
-  font-size: 18px;
-  color: var(--ink);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin: 4px 0 0;
-}
-.venue-placeholder small {
-  font-size: 12px;
-  color: var(--ink-soft);
-  margin: 0;
-}
-.venue-placeholder code {
-  background: var(--bg-cream);
-  padding: 1px 6px;
-  border-radius: 2px;
-  font-size: 11px;
-}
-.venue-frame.no-photo .venue-placeholder { display: flex; }
-/* If image fails to load, the JS onerror handler adds .no-photo to .venue-frame */
-.venue-frame:has(img[src=""]) .venue-placeholder,
-.venue-frame:not(:has(img)) .venue-placeholder { display: flex; }
-/* Fallback: show placeholder when img has not loaded a real photo */
-.venue-frame img:not([src]),
-.venue-frame img[src=""] { display: none; }
-
 .venue-caption {
   margin-top: 14px;
   text-align: center;
@@ -611,19 +581,17 @@ section {
 }
 .venue-caption a:hover { color: var(--maroon); }
 
-/* When the placeholder is showing, hide the broken img cleanly */
-.venue-frame:not(.no-photo) .venue-placeholder { display: none; }
-
 /* =========================================================
    Footer
    ========================================================= */
 .footer {
-  padding: 48px 0 56px;
+  padding: 36px 0 48px;
   text-align: center;
-  color: var(--ink-soft);
+  color: var(--gold);
   font-family: var(--font-display);
-  font-size: 14px;
-  letter-spacing: 0.2em;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  opacity: 0.85;
 }
 .footer p { margin: 0; }
 
