@@ -136,4 +136,88 @@
     return ics;
   }
 
+  // ---------- THEME SWITCHER ----------
+  const THEMES = {
+    ivory:      'Ivory & Gold',
+    blush:      'Blush & Rose',
+    sage:       'Sage Garden',
+    terracotta: 'Terracotta & Bronze',
+    lavender:   'Lavender & Silver',
+    burgundy:   'Royal Burgundy',
+    emerald:    'Emerald & Gold',
+    plum:       'Plum & Gold',
+    midnight:   'Midnight & Pearl',
+    charcoal:   'Charcoal & Rose Gold',
+  };
+
+  const themeBtn   = document.getElementById('themeBtn');
+  const themeList  = document.getElementById('themeList');
+  const themeName  = document.getElementById('themeName');
+  const themeSwatch= document.getElementById('themeSwatch');
+
+  function applyTheme(theme) {
+    if (!THEMES[theme]) theme = 'ivory';
+    if (theme === 'ivory') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    themeName.textContent = THEMES[theme];
+
+    // Mirror swatch from the matching option's style for visual consistency
+    const matching = themeList.querySelector('[data-theme="' + theme + '"] .theme-swatch');
+    if (matching && matching.getAttribute('style')) {
+      themeSwatch.setAttribute('style', matching.getAttribute('style'));
+    }
+
+    // Update selected state for accessibility + visual checkmark
+    themeList.querySelectorAll('[role=option]').forEach((li) => {
+      li.setAttribute('aria-selected', li.dataset.theme === theme ? 'true' : 'false');
+    });
+
+    try { localStorage.setItem('weddingTheme', theme); } catch (e) {}
+  }
+
+  const isLocked = document.documentElement.hasAttribute('data-theme-locked');
+
+  if (themeBtn && themeList && !isLocked) {
+    // Initial state — read what the head-script applied (default = ivory)
+    const initial = document.documentElement.getAttribute('data-theme') || 'ivory';
+    applyTheme(initial);
+
+    themeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = themeBtn.getAttribute('aria-expanded') === 'true';
+      if (open) {
+        themeList.hidden = true;
+        themeBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        themeList.hidden = false;
+        themeBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    themeList.addEventListener('click', (e) => {
+      const li = e.target.closest('[role=option]');
+      if (!li) return;
+      applyTheme(li.dataset.theme);
+      themeList.hidden = true;
+      themeBtn.setAttribute('aria-expanded', 'false');
+    });
+
+    // Close on outside click or Escape
+    document.addEventListener('click', (e) => {
+      if (!themeBtn.contains(e.target) && !themeList.contains(e.target)) {
+        themeList.hidden = true;
+        themeBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        themeList.hidden = true;
+        themeBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
 })();

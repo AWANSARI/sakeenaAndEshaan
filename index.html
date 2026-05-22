@@ -16,8 +16,92 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Apply theme before paint to prevent flash.
+       URL path /v1 through /v10 locks to a specific theme; falls back to
+       localStorage, then default. -->
+  <script>
+    (function () {
+      var BY_VERSION = {
+        v1: 'ivory',      v2: 'blush',    v3: 'sage',
+        v4: 'terracotta', v5: 'lavender', v6: 'burgundy',
+        v7: 'emerald',    v8: 'plum',     v9: 'midnight',
+        v10: 'charcoal'
+      };
+      var theme = null, locked = false;
+      try {
+        var path = location.pathname.toLowerCase().replace(/^\/+|\/+$/g, '');
+        if (BY_VERSION[path]) { theme = BY_VERSION[path]; locked = true; }
+        else {
+          var q = new URLSearchParams(location.search);
+          if (q.get('v') && BY_VERSION['v' + q.get('v')]) {
+            theme = BY_VERSION['v' + q.get('v')]; locked = true;
+          } else if (q.get('theme')) {
+            theme = q.get('theme'); locked = true;
+          } else {
+            theme = localStorage.getItem('weddingTheme');
+          }
+        }
+        if (theme) document.documentElement.setAttribute('data-theme', theme);
+        if (locked) document.documentElement.setAttribute('data-theme-locked', 'true');
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
+
+  <!-- Theme switcher (top-right) -->
+  <div class="theme-switcher" id="themeSwitcher">
+    <button type="button" class="theme-switcher-btn" id="themeBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose theme">
+      <span class="theme-swatch" id="themeSwatch" aria-hidden="true"></span>
+      <span class="theme-name" id="themeName">Ivory &amp; Gold</span>
+      <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
+        <path d="M2 4 L6 8 L10 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <ul class="theme-list" role="listbox" id="themeList" hidden>
+      <li role="option" data-theme="ivory" aria-selected="true">
+        <span class="theme-swatch" style="--sw-bg:#FBF7EE;--sw-accent:#B08D3C" aria-hidden="true"></span>
+        <span>Ivory &amp; Gold</span>
+      </li>
+      <li role="option" data-theme="blush" aria-selected="false">
+        <span class="theme-swatch" style="--sw-bg:#FAF0EE;--sw-accent:#8B3A52" aria-hidden="true"></span>
+        <span>Blush &amp; Rose</span>
+      </li>
+      <li role="option" data-theme="sage" aria-selected="false">
+        <span class="theme-swatch" style="--sw-bg:#ECF0E5;--sw-accent:#4A6B3F" aria-hidden="true"></span>
+        <span>Sage Garden</span>
+      </li>
+      <li role="option" data-theme="terracotta" aria-selected="false">
+        <span class="theme-swatch" style="--sw-bg:#F5E5D5;--sw-accent:#B5764C" aria-hidden="true"></span>
+        <span>Terracotta &amp; Bronze</span>
+      </li>
+      <li role="option" data-theme="lavender" aria-selected="false">
+        <span class="theme-swatch" style="--sw-bg:#ECE6F2;--sw-accent:#5C3F6B" aria-hidden="true"></span>
+        <span>Lavender &amp; Silver</span>
+      </li>
+      <li role="option" data-theme="burgundy" aria-selected="false">
+        <span class="theme-swatch" style="--sw-bg:#3A1119;--sw-accent:#D4AF37" aria-hidden="true"></span>
+        <span>Royal Burgundy</span>
+      </li>
+      <li role="option" data-theme="emerald" aria-selected="false">
+        <span class="theme-swatch" style="--sw-bg:#143A2D;--sw-accent:#D4AF37" aria-hidden="true"></span>
+        <span>Emerald &amp; Gold</span>
+      </li>
+      <li role="option" data-theme="plum" aria-selected="false">
+        <span class="theme-swatch" style="--sw-bg:#3D1F40;--sw-accent:#D4AF37" aria-hidden="true"></span>
+        <span>Plum &amp; Gold</span>
+      </li>
+      <li role="option" data-theme="midnight" aria-selected="false">
+        <span class="theme-swatch" style="--sw-bg:#142540;--sw-accent:#D4B978" aria-hidden="true"></span>
+        <span>Midnight &amp; Pearl</span>
+      </li>
+      <li role="option" data-theme="charcoal" aria-selected="false">
+        <span class="theme-swatch" style="--sw-bg:#2A2A2E;--sw-accent:#C49A8A" aria-hidden="true"></span>
+        <span>Charcoal &amp; Rose Gold</span>
+      </li>
+    </ul>
+  </div>
 
   <!-- Floating gold particles -->
   <div class="particles" aria-hidden="true">
