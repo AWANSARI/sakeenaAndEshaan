@@ -425,18 +425,120 @@ section {
   position: relative;
   box-shadow: 0 4px 14px rgba(107, 31, 42, 0.05);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+/* Push the divider+venue block to the bottom so the venue lines align across cards */
+.event-card .event-divider {
+  margin-top: auto;
+}
+
 .event-corner {
   position: absolute;
   width: 22px;
   height: 22px;
   border-color: var(--gold);
   border-style: solid;
+  z-index: 2;
 }
 .event-corner-tl { top: 8px;    left: 8px;    border-width: 1.5px 0 0 1.5px; }
 .event-corner-tr { top: 8px;    right: 8px;   border-width: 1.5px 1.5px 0 0; }
 .event-corner-bl { bottom: 8px; left: 8px;    border-width: 0 0 1.5px 1.5px; }
 .event-corner-br { bottom: 8px; right: 8px;   border-width: 0 1.5px 1.5px 0; }
+
+/* =========================================================
+   Venue maps section (below event cards)
+   ========================================================= */
+.venue-maps {
+  margin: 56px auto 0;
+}
+.venue-heading {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--maroon);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 0 0 28px;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  padding: 0 36px;
+}
+.venue-heading::before,
+.venue-heading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+.venue-heading::before { left: 0; }
+.venue-heading::after  { right: 0; }
+
+.venue-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  max-width: 580px;
+  margin: 0 auto;
+}
+@media (min-width: 640px) {
+  .venue-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.venue-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.venue-block-name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--maroon);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 16px 0 4px;
+  font-weight: 500;
+}
+.venue-block-sub {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+.map-frame {
+  width: 100%;
+  border: 1px solid var(--gold-soft);
+  padding: 6px;
+  background: var(--bg-card);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(107, 31, 42, 0.06);
+}
+.map-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(0.92);
+}
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 500;
+}
+.map-link:hover { color: var(--maroon); }
 
 .event-arabic {
   font-family: var(--font-arabic);
@@ -452,7 +554,15 @@ section {
   color: var(--ink);
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin: 0 0 16px;
+  margin: 0 0 8px;
+}
+.event-date-line {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+  margin: 0 0 12px;
 }
 .event-meta {
   margin: 6px 0;
@@ -493,6 +603,7 @@ section {
   border-bottom: 1px solid rgba(176, 141, 60, 0.45);
 }
 .event-address.link:hover { color: var(--maroon); }
+
 
 /* Action buttons */
 .actions {
@@ -536,50 +647,6 @@ section {
   border-color: var(--maroon-soft);
 }
 
-/* =========================================================
-   Venue map (embedded Google Maps)
-   ========================================================= */
-.venue-map {
-  margin: 60px auto 0;
-  max-width: 560px;
-}
-.venue-heading {
-  font-family: var(--font-display);
-  font-size: 14px;
-  color: var(--maroon);
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  margin: 0 0 20px;
-  font-weight: 500;
-}
-.map-frame {
-  border: 1px solid var(--gold-soft);
-  padding: 8px;
-  background: var(--bg-card);
-  position: relative;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(107, 31, 42, 0.06);
-}
-.map-frame iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  filter: saturate(0.92);
-}
-.venue-caption {
-  margin-top: 14px;
-  text-align: center;
-  font-size: 13px;
-  color: var(--ink-soft);
-}
-.venue-caption a {
-  color: var(--gold);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(176, 141, 60, 0.5);
-}
-.venue-caption a:hover { color: var(--maroon); }
 
 /* =========================================================
    Footer

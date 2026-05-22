@@ -90,10 +90,13 @@
   }
 
   function buildICS() {
+    // Nikah Ceremony — Friday, June 12, 2026 at Kohinoor (after Asr + dinner)
     const nikahStart = new Date(2026, 5, 12, 18, 30); // 6:30 PM
-    const nikahEnd   = new Date(2026, 5, 12, 19, 45); // 7:45 PM
-    const recStart   = new Date(2026, 5, 12, 20, 0);  // 8:00 PM
-    const recEnd     = new Date(2026, 5, 13, 0, 0);   // midnight
+    const nikahEnd   = new Date(2026, 5, 12, 22, 0);  // 10:00 PM (incl. dinner)
+
+    // Walima — Sunday, June 14, 2026 at ICCD (time TBA — using all-day block for now)
+    const walimaStart = new Date(2026, 5, 14, 17, 0); // 5:00 PM placeholder
+    const walimaEnd   = new Date(2026, 5, 14, 22, 0); // 10:00 PM placeholder
 
     const stamp = icsDate(new Date());
     const uid1  = 'nikah-' + stamp + '@sakeena-eshaan';
@@ -105,26 +108,27 @@
       'PRODID:-//Sakeena & Eshaan//Wedding Invitation//EN',
       'CALSCALE:GREGORIAN',
       'METHOD:PUBLISH',
-      // -- Nikah --
+      // -- Nikah Ceremony --
       'BEGIN:VEVENT',
       'UID:' + uid1,
       'DTSTAMP:' + stamp,
       'DTSTART:' + icsDate(nikahStart),
       'DTEND:' + icsDate(nikahEnd),
       'SUMMARY:Nikah — Sakeena Fatima & Eshaan Arif Syed',
-      'DESCRIPTION:Nikah ceremony of Sakeena Fatima and Eshaan Arif Syed\\, after Asr prayer.',
-      'LOCATION:[Masjid Name] — details to follow',
+      'DESCRIPTION:Nikah ceremony after Asr prayer\\, followed by dinner. https://kohinoorbanquet.com/',
+      'LOCATION:Kohinoor Banquet Hall',
+      'URL:https://maps.app.goo.gl/YTYjiBimg1Jiwysb7',
       'END:VEVENT',
-      // -- Walima Reception --
+      // -- Walima --
       'BEGIN:VEVENT',
       'UID:' + uid2,
       'DTSTAMP:' + stamp,
-      'DTSTART:' + icsDate(recStart),
-      'DTEND:' + icsDate(recEnd),
-      'SUMMARY:Walima Reception — Sakeena & Eshaan',
-      'DESCRIPTION:Walima reception of Sakeena Fatima and Eshaan Arif Syed. https://kohinoorbanquet.com/',
-      'LOCATION:Kohinoor Banquet Hall',
-      'URL:https://kohinoorbanquet.com/',
+      'DTSTART:' + icsDate(walimaStart),
+      'DTEND:' + icsDate(walimaEnd),
+      'SUMMARY:Walima — Sakeena & Eshaan',
+      'DESCRIPTION:Walima reception of Sakeena Fatima and Eshaan Arif Syed. Time to be confirmed.',
+      'LOCATION:Islamic Community Center of Des Plaines',
+      'URL:https://maps.app.goo.gl/itAmo8YgSmXL8e5t8',
       'END:VEVENT',
       'END:VCALENDAR',
     ].join('\r\n');
