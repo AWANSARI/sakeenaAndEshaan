@@ -1,6 +1,6 @@
 /* =========================================================
    Sakeena & Eshaan — Wedding Invitation
-   Interactivity: countdown, reveal-on-scroll, calendar, music
+   Interactivity: countdown, reveal-on-scroll, calendar
    ========================================================= */
 
 (function () {
@@ -130,40 +130,6 @@
     ].join('\r\n');
 
     return ics;
-  }
-
-  // ---------- MUSIC TOGGLE ----------
-  const musicBtn = document.getElementById('musicToggle');
-  const audio = document.getElementById('bgMusic');
-
-  if (musicBtn && audio) {
-    musicBtn.addEventListener('click', async () => {
-      try {
-        if (audio.paused) {
-          audio.volume = 0.45;
-          await audio.play();
-          musicBtn.classList.add('is-playing');
-          musicBtn.setAttribute('title', 'Pause music');
-          const label = musicBtn.querySelector('.music-label');
-          if (label) label.textContent = 'Pause';
-        } else {
-          audio.pause();
-          musicBtn.classList.remove('is-playing');
-          musicBtn.setAttribute('title', 'Play music');
-          const label = musicBtn.querySelector('.music-label');
-          if (label) label.textContent = 'Music';
-        }
-      } catch (err) {
-        // If no music.mp3 exists or playback is blocked, fail silently
-        console.info('Music playback unavailable:', err && err.message);
-        musicBtn.style.display = 'none';
-      }
-    });
-
-    // Hide the button if the audio file is missing
-    audio.addEventListener('error', () => {
-      musicBtn.style.display = 'none';
-    });
   }
 
 })();
