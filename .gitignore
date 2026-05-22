@@ -1,0 +1,14 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Local previews
+preview_*.png
+
+# Local dev
+node_modules/
+*.log

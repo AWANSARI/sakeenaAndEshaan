@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1B0B0F" />
+  <title>Sakeena & Eshaan — Wedding Invitation</title>
+  <meta name="description" content="With the blessings of Allah, the Ansari & Syed families joyfully invite you to the wedding of Sakeena Fatima & Eshaan Arif Syed — June 12, 2026." />
+
+  <!-- Open Graph for nice link previews when shared -->
+  <meta property="og:title" content="Sakeena & Eshaan — Wedding Invitation" />
+  <meta property="og:description" content="June 12, 2026 · Nikah after Asr · Reception at Kohinoor Banquet Hall" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts: serif display + Arabic/Urdu calligraphy -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Soft animated gold particles in the background -->
+  <div class="particles" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Music toggle (top-right floating button) -->
+  <button id="musicToggle" class="music-toggle" aria-label="Toggle background music" title="Play music">
+    <svg class="icon-play" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M9 18V5l12-2v13" />
+      <circle cx="6" cy="18" r="3" />
+      <circle cx="18" cy="16" r="3" />
+    </svg>
+    <span class="music-label">Music</span>
+  </button>
+
+  <!-- Optional: drop a file at /music.mp3 to enable -->
+  <audio id="bgMusic" loop preload="none">
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <main>
+
+    <!-- ======================== HERO ======================== -->
+    <section class="hero reveal">
+      <div class="ornament ornament-top" aria-hidden="true">
+        <svg viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M0 40 H160" />
+            <path d="M240 40 H400" />
+            <circle cx="200" cy="40" r="14" />
+            <circle cx="200" cy="40" r="22" />
+            <path d="M200 18 L204 30 L216 30 L206 38 L210 50 L200 42 L190 50 L194 38 L184 30 L196 30 Z" />
+            <path d="M170 40 q15 -15 30 0 q15 15 30 0" />
+            <path d="M170 40 q15 15 30 0 q15 -15 30 0" />
+          </g>
+        </svg>
+      </div>
+
+      <p class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+      <p class="bismillah-trans">In the name of Allah, the Most Gracious, the Most Merciful</p>
+
+      <p class="eyebrow">Together with their families</p>
+
+      <div class="couple">
+        <div class="name-block">
+          <span class="urdu" lang="ur" dir="rtl">سکینہ فاطمہ</span>
+          <h1 class="name-en">Sakeena Fatima</h1>
+        </div>
+
+        <div class="amp" aria-hidden="true">
+          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="currentColor" stroke-width="1.4">
+              <circle cx="30" cy="30" r="22" />
+              <path d="M30 8 L34 24 L48 24 L36 33 L40 48 L30 39 L20 48 L24 33 L12 24 L26 24 Z" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="name-block">
+          <span class="urdu" lang="ur" dir="rtl">احسان عارف سید</span>
+          <h1 class="name-en">Eshaan Arif Syed</h1>
+        </div>
+      </div>
+
+      <p class="hero-date">are getting married</p>
+      <p class="hero-date-big">12<span>·</span>06<span>·</span>2026</p>
+
+      <div class="ornament ornament-bottom" aria-hidden="true">
+        <svg viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M0 40 H160" />
+            <path d="M240 40 H400" />
+            <circle cx="200" cy="40" r="14" />
+            <circle cx="200" cy="40" r="22" />
+            <path d="M200 18 L204 30 L216 30 L206 38 L210 50 L200 42 L190 50 L194 38 L184 30 L196 30 Z" />
+            <path d="M170 40 q15 -15 30 0 q15 15 30 0" />
+            <path d="M170 40 q15 15 30 0 q15 -15 30 0" />
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ======================== COUNTDOWN ======================== -->
+    <section class="countdown-wrap reveal">
+      <h2 class="section-title">Counting Down to Our Day</h2>
+      <div id="countdown" class="countdown" aria-live="polite">
+        <div class="cd-box"><span class="cd-num" id="cd-days">--</span><span class="cd-label">Days</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-hours">--</span><span class="cd-label">Hours</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-mins">--</span><span class="cd-label">Minutes</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-secs">--</span><span class="cd-label">Seconds</span></div>
+      </div>
+    </section>
+
+    <!-- ======================== QURANIC VERSE ======================== -->
+    <section class="verse reveal">
+      <div class="verse-frame">
+        <p class="arabic" lang="ar" dir="rtl">
+          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
+          وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+        </p>
+        <p class="verse-translation">
+          "And of His signs is that He created for you from yourselves mates that you may find tranquility in them;
+          and He placed between you affection and mercy. Indeed in that are signs for a people who give thought."
+        </p>
+        <p class="verse-citation">— Qur'an, Surah Ar-Rum 30:21</p>
+      </div>
+    </section>
+
+    <!-- ======================== INVITATION FROM FAMILIES ======================== -->
+    <section class="invitation reveal">
+      <h2 class="section-title">An Invitation</h2>
+
+      <p class="invite-body">
+        With hearts full of gratitude to Allah <span class="swt">ﷻ</span>, and joy beyond words,
+      </p>
+
+      <div class="families">
+        <div class="family">
+          <p class="family-side">Parents of the Bride</p>
+          <p class="parent-name">Abdul Moiz Ansari</p>
+          <p class="parent-and">&amp;</p>
+          <p class="parent-name">Tasneem Begum</p>
+        </div>
+
+        <div class="family-divider" aria-hidden="true">
+          <svg viewBox="0 0 30 120" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M15 0 V120" />
+              <circle cx="15" cy="60" r="6" />
+              <circle cx="15" cy="60" r="10" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="family">
+          <p class="family-side">Parents of the Groom</p>
+          <p class="parent-name">Mr. &amp; Mrs. Arif Syed</p>
+        </div>
+      </div>
+
+      <p class="invite-body">
+        request the honour of your presence at the wedding of their beloved children
+      </p>
+
+      <p class="invite-couple">
+        <span lang="ur" dir="rtl">سکینہ فاطمہ</span>
+        <span class="invite-amp">to</span>
+        <span lang="ur" dir="rtl">احسان عارف سید</span>
+      </p>
+      <p class="invite-couple-en">Sakeena Fatima &nbsp;·&nbsp; Eshaan Arif Syed</p>
+    </section>
+
+    <!-- ======================== EVENTS ======================== -->
+    <section class="events reveal">
+      <h2 class="section-title">The Celebrations</h2>
+      <p class="events-date">Friday, the Twelfth of June, Two Thousand &amp; Twenty-Six</p>
+
+      <div class="event-cards">
+
+        <!-- Nikah card -->
+        <article class="event-card">
+          <div class="event-corner event-corner-tl" aria-hidden="true"></div>
+          <div class="event-corner event-corner-tr" aria-hidden="true"></div>
+          <div class="event-corner event-corner-bl" aria-hidden="true"></div>
+          <div class="event-corner event-corner-br" aria-hidden="true"></div>
+
+          <p class="event-arabic" lang="ar" dir="rtl">النِّكَاح</p>
+          <h3 class="event-name">Nikah Ceremony</h3>
+          <p class="event-meta"><strong>After Asr Prayer</strong></p>
+          <p class="event-meta event-time">Approx. 6:30 PM</p>
+
+          <div class="event-divider" aria-hidden="true"></div>
+
+          <p class="event-venue">[Masjid Name]</p>
+          <p class="event-address">details to follow</p>
+        </article>
+
+        <!-- Reception card -->
+        <article class="event-card">
+          <div class="event-corner event-corner-tl" aria-hidden="true"></div>
+          <div class="event-corner event-corner-tr" aria-hidden="true"></div>
+          <div class="event-corner event-corner-bl" aria-hidden="true"></div>
+          <div class="event-corner event-corner-br" aria-hidden="true"></div>
+
+          <p class="event-arabic" lang="ar" dir="rtl">الوَلِيمَة</p>
+          <h3 class="event-name">Walima Reception</h3>
+          <p class="event-meta"><strong>8:00 PM onwards</strong></p>
+          <p class="event-meta event-time">Dinner &amp; Celebration</p>
+
+          <div class="event-divider" aria-hidden="true"></div>
+
+          <p class="event-venue">Kohinoor Banquet Hall</p>
+          <a class="event-address link" href="https://kohinoorbanquet.com/" target="_blank" rel="noopener noreferrer">kohinoorbanquet.com</a>
+        </article>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="actions">
+        <button id="addToCal" class="btn btn-primary" type="button">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          Add to Calendar
+        </button>
+
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Kohinoor+Banquet+Hall" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Get Directions
+        </a>
+      </div>
+    </section>
+
+    <!-- ======================== CLOSING / DUA ======================== -->
+    <section class="closing reveal">
+      <div class="closing-frame">
+        <p class="closing-arabic" lang="ar" dir="rtl">بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
+        <p class="closing-trans">
+          "May Allah bless you, and shower His blessings upon you, and unite you both in goodness."
+        </p>
+        <p class="closing-sig">
+          Your presence and prayers are our greatest gift.<br/>
+          <em>— The Ansari &amp; Syed Families</em>
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Sakeena &amp; Eshaan · 12 · 06 · 2026</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
