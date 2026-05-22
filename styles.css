@@ -1,27 +1,33 @@
 /* =========================================================
    Sakeena & Eshaan — Wedding Invitation
-   Light & elegant theme: ivory + gold + soft maroon accents
+   Etched floral / gold line-art theme
+   Inspired by Lovebird's botanical line-art aesthetic
    ========================================================= */
 
 :root {
-  --bg-ivory: #FBF6EC;          /* warm ivory background */
-  --bg-cream: #F5ECD9;          /* slightly deeper cream */
-  --bg-card: #FFFBF2;           /* lightest card surface */
-  --maroon: #6B1F2A;            /* deep burgundy — accent only */
-  --maroon-soft: #8B3A47;
-  --emerald: #2D5D4E;           /* soft emerald accent */
-  --gold: #B8860B;              /* deep antique gold */
-  --gold-bright: #D4AF37;       /* classic gold */
-  --gold-soft: #C9A961;         /* soft gold for fills */
-  --ink: #3A1F18;               /* warm dark brown for text */
-  --ink-soft: #6B4A3A;          /* muted body text */
+  --bg-ivory: #FBF7EE;          /* warm ivory background */
+  --bg-cream: #F5EDD7;          /* slightly deeper cream */
+  --bg-card: #FFFCF4;           /* paper-white card surface */
+  --bg-frame: #FBF7EE;
 
-  --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  --gold: #B08D3C;              /* deep antique gold for line art */
+  --gold-bright: #C9A961;
+  --gold-soft: #D9C28A;
+
+  --maroon: #6B1F2A;            /* used sparingly for emphasis */
+  --maroon-soft: #8B3A47;
+
+  --ink: #3D2A1F;               /* warm dark brown text */
+  --ink-soft: #7A5C48;          /* muted body text */
+  --ink-italic: #5A3F2A;        /* italic emphasis */
+
+  --font-display: 'Italiana', 'Cormorant Garamond', Georgia, serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-caps: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
   --font-arabic: 'Amiri', 'Noto Naskh Arabic', serif;
   --font-urdu: 'Noto Nastaliq Urdu', 'Amiri', serif;
 
-  --maxw: 720px;
+  --maxw: 660px;
 }
 
 * { box-sizing: border-box; }
@@ -30,31 +36,17 @@ html, body {
   margin: 0;
   padding: 0;
   background:
-    radial-gradient(ellipse at top, rgba(212, 175, 55, 0.10) 0%, transparent 55%),
-    radial-gradient(ellipse at bottom, rgba(107, 31, 42, 0.06) 0%, transparent 60%),
-    linear-gradient(180deg, var(--bg-ivory) 0%, var(--bg-cream) 100%);
+    radial-gradient(ellipse at top, rgba(176, 141, 60, 0.07) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-ivory) 0%, #F6EFDC 100%);
   background-attachment: fixed;
   color: var(--ink);
   font-family: var(--font-serif);
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.65;
   min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Subtle damask-style overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle at 25% 25%, rgba(184, 134, 11, 0.05) 0%, transparent 28%),
-    radial-gradient(circle at 75% 75%, rgba(184, 134, 11, 0.05) 0%, transparent 28%);
-  background-size: 90px 90px;
-  z-index: 0;
 }
 
 main {
@@ -62,11 +54,16 @@ main {
   z-index: 1;
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
+}
+
+em {
+  font-style: italic;
+  color: var(--ink-italic);
 }
 
 /* =========================================================
-   Floating gold particles
+   Floating gold particles (subtle)
    ========================================================= */
 .particles {
   position: fixed;
@@ -78,33 +75,27 @@ main {
 .particles span {
   position: absolute;
   display: block;
-  width: 4px; height: 4px;
+  width: 3px; height: 3px;
   background: var(--gold-bright);
   border-radius: 50%;
-  box-shadow: 0 0 6px var(--gold-soft);
-  opacity: 0.45;
-  animation: float 18s linear infinite;
+  opacity: 0.35;
+  animation: float 24s linear infinite;
 }
-.particles span:nth-child(1)  { left: 5%;  animation-duration: 22s; animation-delay: 0s; }
-.particles span:nth-child(2)  { left: 12%; animation-duration: 26s; animation-delay: 3s; }
-.particles span:nth-child(3)  { left: 20%; animation-duration: 18s; animation-delay: 6s; width: 3px; height: 3px; }
-.particles span:nth-child(4)  { left: 28%; animation-duration: 30s; animation-delay: 1s; }
-.particles span:nth-child(5)  { left: 35%; animation-duration: 24s; animation-delay: 4s; width: 5px; height: 5px; }
-.particles span:nth-child(6)  { left: 42%; animation-duration: 28s; animation-delay: 8s; }
-.particles span:nth-child(7)  { left: 50%; animation-duration: 20s; animation-delay: 2s; }
-.particles span:nth-child(8)  { left: 58%; animation-duration: 32s; animation-delay: 5s; width: 3px; height: 3px; }
-.particles span:nth-child(9)  { left: 65%; animation-duration: 22s; animation-delay: 7s; }
-.particles span:nth-child(10) { left: 72%; animation-duration: 26s; animation-delay: 0s; width: 5px; height: 5px; }
-.particles span:nth-child(11) { left: 80%; animation-duration: 24s; animation-delay: 9s; }
-.particles span:nth-child(12) { left: 87%; animation-duration: 30s; animation-delay: 3s; }
-.particles span:nth-child(13) { left: 93%; animation-duration: 20s; animation-delay: 6s; width: 3px; height: 3px; }
-.particles span:nth-child(14) { left: 15%; animation-duration: 28s; animation-delay: 10s; }
-.particles span:nth-child(15) { left: 78%; animation-duration: 22s; animation-delay: 12s; }
+.particles span:nth-child(1)  { left: 8%;  animation-duration: 28s; animation-delay: 0s; }
+.particles span:nth-child(2)  { left: 22%; animation-duration: 32s; animation-delay: 4s; }
+.particles span:nth-child(3)  { left: 36%; animation-duration: 24s; animation-delay: 8s; }
+.particles span:nth-child(4)  { left: 50%; animation-duration: 30s; animation-delay: 2s; }
+.particles span:nth-child(5)  { left: 64%; animation-duration: 26s; animation-delay: 6s; }
+.particles span:nth-child(6)  { left: 78%; animation-duration: 34s; animation-delay: 1s; }
+.particles span:nth-child(7)  { left: 90%; animation-duration: 28s; animation-delay: 9s; }
+.particles span:nth-child(8)  { left: 14%; animation-duration: 30s; animation-delay: 11s; }
+.particles span:nth-child(9)  { left: 56%; animation-duration: 26s; animation-delay: 14s; }
+.particles span:nth-child(10) { left: 82%; animation-duration: 32s; animation-delay: 7s; }
 
 @keyframes float {
   0%   { transform: translateY(110vh) scale(0.6); opacity: 0; }
-  10%  { opacity: 0.55; }
-  90%  { opacity: 0.35; }
+  10%  { opacity: 0.4; }
+  90%  { opacity: 0.25; }
   100% { transform: translateY(-10vh) scale(1); opacity: 0; }
 }
 
@@ -113,164 +104,166 @@ main {
    ========================================================= */
 .music-toggle {
   position: fixed;
-  top: 16px;
-  right: 16px;
+  top: 18px;
+  right: 18px;
   z-index: 100;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 14px;
-  background: rgba(255, 251, 242, 0.85);
-  color: var(--maroon);
+  padding: 9px 14px;
+  background: rgba(255, 252, 244, 0.9);
+  color: var(--ink-italic);
   border: 1px solid var(--gold);
   border-radius: 999px;
-  font-family: var(--font-display);
-  font-size: 12px;
-  letter-spacing: 0.15em;
+  font-family: var(--font-caps);
+  font-size: 11px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   cursor: pointer;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(107, 31, 42, 0.12);
+  box-shadow: 0 2px 10px rgba(107, 31, 42, 0.08);
 }
 .music-toggle:hover {
-  background: rgba(245, 236, 217, 0.95);
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+  background: var(--bg-cream);
+  box-shadow: 0 0 14px rgba(176, 141, 60, 0.3);
 }
-.music-toggle.is-playing .icon-play {
-  animation: spin 4s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
 
 /* =========================================================
    Sections
    ========================================================= */
 section {
-  padding: 64px 0;
+  padding: 56px 0;
   text-align: center;
 }
 
 .section-title {
   font-family: var(--font-display);
-  font-weight: 500;
-  color: var(--maroon);
-  letter-spacing: 0.25em;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-size: 14px;
-  margin: 0 0 32px;
-  position: relative;
-  display: inline-block;
-  padding: 0 36px;
+  font-size: 18px;
+  margin: 0 0 8px;
 }
-.section-title::before,
-.section-title::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 24px;
-  height: 1px;
-  background: var(--gold);
+.section-title + .events-date,
+.section-title + .invite-body {
+  margin-top: 0;
 }
-.section-title::before { left: 0; }
-.section-title::after  { right: 0; }
+
+/* Section dividers between blocks */
+.section-divider {
+  color: var(--gold);
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 280px;
+  opacity: 0.85;
+}
+.section-divider svg { width: 100%; height: auto; }
 
 /* =========================================================
    HERO
    ========================================================= */
 .hero {
-  padding-top: 90px;
-  padding-bottom: 48px;
+  padding-top: 64px;
+  padding-bottom: 40px;
 }
-.ornament {
+
+.botanical {
   color: var(--gold);
   display: flex;
   justify-content: center;
-  margin: 0 auto 24px;
-  max-width: 360px;
+  margin: 0 auto 16px;
+  max-width: 280px;
 }
-.ornament svg { width: 100%; height: auto; }
-.ornament-bottom { margin: 32px auto 0; transform: rotate(180deg); }
+.botanical svg { width: 100%; height: auto; }
+.botanical-flip { transform: rotate(180deg); margin: 24px auto 32px; }
 
 .bismillah {
   font-family: var(--font-arabic);
-  font-size: clamp(28px, 6vw, 42px);
+  font-size: clamp(26px, 5.5vw, 36px);
   color: var(--maroon);
-  margin: 0 0 8px;
-  font-weight: 700;
-  line-height: 1.4;
+  margin: 0 0 6px;
+  font-weight: 400;
+  line-height: 1.5;
 }
 .bismillah-trans {
-  font-style: italic;
   color: var(--ink-soft);
-  font-size: 14px;
-  letter-spacing: 0.04em;
+  font-size: 13px;
+  letter-spacing: 0.05em;
   margin: 0 0 36px;
 }
 
 .eyebrow {
-  font-family: var(--font-display);
-  font-size: 12px;
+  font-family: var(--font-caps);
+  font-size: 11px;
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--gold);
-  margin: 0 0 24px;
+  margin: 0 0 28px;
 }
 
 .couple {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  margin: 24px 0;
+  gap: 8px;
+  margin: 16px 0;
 }
 .name-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 .urdu {
   font-family: var(--font-urdu);
-  font-size: clamp(28px, 6.5vw, 42px);
+  font-size: clamp(24px, 5.5vw, 34px);
   color: var(--maroon);
-  line-height: 1.6;
-  font-weight: 600;
+  line-height: 1.7;
+  font-weight: 400;
 }
 .name-en {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(28px, 7vw, 48px);
+  font-weight: 400;
+  font-size: clamp(36px, 9vw, 60px);
   color: var(--ink);
   margin: 0;
-  letter-spacing: 0.06em;
-  line-height: 1.1;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.name-en em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-italic);
 }
 .amp {
   color: var(--gold);
-  width: 60px;
-  height: 60px;
+  width: 140px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.amp svg { width: 100%; height: auto; }
 
 .hero-date {
-  font-style: italic;
   color: var(--ink-soft);
-  margin: 24px 0 4px;
-  font-size: 17px;
-  letter-spacing: 0.05em;
+  margin: 20px 0 4px;
+  font-size: 18px;
+  letter-spacing: 0.04em;
 }
 .hero-date-big {
   font-family: var(--font-display);
-  font-size: clamp(28px, 7vw, 44px);
-  color: var(--maroon);
-  letter-spacing: 0.15em;
+  font-size: clamp(28px, 7.5vw, 42px);
+  color: var(--ink);
+  letter-spacing: 0.18em;
   margin: 4px 0 0;
-  font-weight: 500;
+  font-weight: 400;
 }
-.hero-date-big span { color: var(--gold); margin: 0 8px; }
 
 /* =========================================================
    Countdown
@@ -278,89 +271,82 @@ section {
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  max-width: 480px;
-  margin: 0 auto;
+  gap: 14px;
+  max-width: 440px;
+  margin: 44px auto 0;
 }
 .cd-box {
   background: var(--bg-card);
-  border: 1px solid var(--gold);
-  border-radius: 8px;
-  padding: 18px 6px;
+  border: 1px solid var(--gold-soft);
+  border-radius: 4px;
+  padding: 18px 6px 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(107, 31, 42, 0.07);
-}
-.cd-box::before {
-  content: '';
-  position: absolute;
-  inset: 4px;
-  border: 1px solid rgba(184, 134, 11, 0.3);
-  border-radius: 5px;
-  pointer-events: none;
 }
 .cd-num {
   font-family: var(--font-display);
-  font-size: clamp(28px, 6vw, 38px);
-  color: var(--maroon);
-  font-weight: 600;
+  font-size: clamp(26px, 6vw, 34px);
+  color: var(--ink);
+  font-weight: 400;
   line-height: 1;
+  letter-spacing: 0.04em;
 }
 .cd-label {
-  font-family: var(--font-display);
-  font-size: 10px;
-  letter-spacing: 0.25em;
+  font-family: var(--font-caps);
+  font-size: 9px;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--ink-soft);
-  margin-top: 8px;
+  color: var(--gold);
+  margin-top: 10px;
 }
 
 /* =========================================================
    Quranic Verse
    ========================================================= */
+.verse {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
 .verse-frame {
-  border: 1px solid var(--gold);
-  border-radius: 4px;
-  padding: 40px 28px;
+  border: 1px solid var(--gold-soft);
+  padding: 56px 36px;
   position: relative;
   background: var(--bg-card);
   max-width: 600px;
   margin: 0 auto;
-  box-shadow: 0 6px 22px rgba(107, 31, 42, 0.08);
+  box-shadow: 0 4px 18px rgba(107, 31, 42, 0.05);
 }
-.verse-frame::before,
-.verse-frame::after {
-  content: '';
+.corner-sprig {
   position: absolute;
-  left: 16px; right: 16px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  width: 56px;
+  height: 56px;
+  color: var(--gold);
 }
-.verse-frame::before { top: 12px; }
-.verse-frame::after  { bottom: 12px; }
+.corner-tl { top: 8px;    left: 8px; }
+.corner-tr { top: 8px;    right: 8px; }
+.corner-bl { bottom: 8px; left: 8px; }
+.corner-br { bottom: 8px; right: 8px; }
 
 .arabic {
   font-family: var(--font-arabic);
-  font-size: clamp(22px, 4.5vw, 28px);
+  font-size: clamp(20px, 4vw, 26px);
   color: var(--maroon);
-  line-height: 1.9;
-  margin: 0 0 20px;
+  line-height: 2;
+  margin: 0 0 22px;
   font-weight: 400;
 }
 .verse-translation {
-  font-style: italic;
-  color: var(--ink);
+  color: var(--ink-italic);
   font-size: 17px;
-  line-height: 1.7;
-  margin: 0 0 14px;
+  line-height: 1.75;
+  margin: 0 0 16px;
 }
 .verse-citation {
-  font-family: var(--font-display);
-  font-size: 11px;
-  letter-spacing: 0.25em;
+  font-family: var(--font-caps);
+  font-size: 10px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gold);
   margin: 0;
@@ -371,8 +357,8 @@ section {
    ========================================================= */
 .invite-body {
   font-size: 18px;
-  line-height: 1.7;
-  margin: 16px 0;
+  line-height: 1.75;
+  margin: 18px 0;
   color: var(--ink);
 }
 .swt {
@@ -385,7 +371,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 16px;
   margin: 36px 0;
   flex-wrap: wrap;
 }
@@ -393,60 +379,38 @@ section {
   flex: 1;
   min-width: 220px;
   max-width: 280px;
-  padding: 24px 16px;
-  border-top: 1px solid var(--gold);
-  border-bottom: 1px solid var(--gold);
-  position: relative;
+  padding: 8px 12px;
 }
-.family::before,
-.family::after {
-  content: '❖';
-  position: absolute;
-  color: var(--gold);
-  font-size: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.family::before { top: -8px; background: var(--bg-ivory); padding: 0 12px; }
-.family::after  { bottom: -8px; background: var(--bg-ivory); padding: 0 12px; }
-
 .family-side {
-  font-family: var(--font-display);
-  font-size: 11px;
+  font-family: var(--font-caps);
+  font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gold);
-  margin: 0 0 12px;
+  margin: 0 0 10px;
 }
 .parent-name {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 22px;
   color: var(--ink);
-  margin: 6px 0;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-.parent-and {
-  font-family: var(--font-display);
-  color: var(--gold);
-  font-style: italic;
   margin: 4px 0;
-  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 .family-divider {
   color: var(--gold);
   width: 30px;
-  height: 80px;
+  height: 100px;
   display: flex;
   align-items: center;
 }
 
 .invite-couple {
   font-family: var(--font-urdu);
-  font-size: clamp(24px, 5.5vw, 34px);
+  font-size: clamp(22px, 5vw, 30px);
   color: var(--maroon);
-  margin: 28px 0 8px;
-  line-height: 1.8;
+  margin: 32px 0 8px;
+  line-height: 1.9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -455,34 +419,34 @@ section {
 }
 .invite-amp {
   font-family: var(--font-display);
-  font-style: italic;
   color: var(--gold);
-  font-size: 18px;
-  letter-spacing: 0.2em;
+  font-size: 20px;
+  letter-spacing: 0.1em;
 }
 .invite-couple-en {
   font-family: var(--font-display);
-  font-size: clamp(18px, 4vw, 24px);
+  font-size: clamp(20px, 4.5vw, 28px);
   color: var(--ink);
-  margin: 4px 0 0;
-  letter-spacing: 0.1em;
+  margin: 8px 0 0;
+  letter-spacing: 0.06em;
+  font-weight: 400;
 }
 
 /* =========================================================
    Events
    ========================================================= */
 .events-date {
-  font-style: italic;
   color: var(--ink-soft);
-  margin: 0 0 32px;
+  margin: 0 0 36px;
   font-size: 17px;
+  letter-spacing: 0.03em;
 }
 
 .event-cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
-  max-width: 620px;
+  gap: 22px;
+  max-width: 580px;
   margin: 0 auto;
 }
 @media (min-width: 640px) {
@@ -491,37 +455,33 @@ section {
 
 .event-card {
   background: var(--bg-card);
-  border: 1px solid var(--gold);
-  padding: 36px 24px 32px;
+  border: 1px solid var(--gold-soft);
+  padding: 32px 22px 28px;
   position: relative;
-  border-radius: 2px;
-  box-shadow: 0 6px 18px rgba(107, 31, 42, 0.08);
+  box-shadow: 0 4px 14px rgba(107, 31, 42, 0.05);
+  text-align: center;
 }
-.event-corner {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  border-color: var(--gold);
-  border-style: solid;
+.card-flourish {
+  color: var(--gold);
+  width: 80px;
+  height: 28px;
+  display: block;
+  margin: 0 auto 12px;
 }
-.event-corner-tl { top: 8px;    left: 8px;    border-width: 2px 0 0 2px; }
-.event-corner-tr { top: 8px;    right: 8px;   border-width: 2px 2px 0 0; }
-.event-corner-bl { bottom: 8px; left: 8px;    border-width: 0 0 2px 2px; }
-.event-corner-br { bottom: 8px; right: 8px;   border-width: 0 2px 2px 0; }
 
 .event-arabic {
   font-family: var(--font-arabic);
-  font-size: 28px;
+  font-size: 26px;
   color: var(--maroon);
   margin: 0 0 8px;
-  font-weight: 700;
+  font-weight: 400;
 }
 .event-name {
   font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 22px;
+  font-weight: 400;
   color: var(--ink);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   margin: 0 0 16px;
 }
@@ -531,38 +491,36 @@ section {
   font-size: 17px;
 }
 .event-meta strong {
-  color: var(--maroon);
-  font-weight: 600;
+  color: var(--ink);
+  font-weight: 500;
   letter-spacing: 0.04em;
 }
 .event-time {
-  font-style: italic;
   color: var(--ink-soft);
   font-size: 15px;
 }
 .event-divider {
-  width: 60%;
+  width: 50%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
   margin: 18px auto;
 }
 .event-venue {
   font-family: var(--font-display);
-  font-size: 16px;
-  color: var(--maroon);
-  letter-spacing: 0.08em;
+  font-size: 18px;
+  color: var(--ink);
+  letter-spacing: 0.06em;
   margin: 6px 0 4px;
 }
 .event-address {
   font-size: 14px;
-  font-style: italic;
   color: var(--ink-soft);
   margin: 0;
 }
 .event-address.link {
   color: var(--gold);
   text-decoration: none;
-  border-bottom: 1px solid rgba(184, 134, 11, 0.5);
+  border-bottom: 1px solid rgba(176, 141, 60, 0.45);
 }
 .event-address.link:hover { color: var(--maroon); }
 
@@ -578,12 +536,12 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 22px;
-  font-family: var(--font-display);
-  font-size: 12px;
-  letter-spacing: 0.2em;
+  padding: 11px 22px;
+  font-family: var(--font-caps);
+  font-size: 11px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  border-radius: 999px;
+  border-radius: 0;
   cursor: pointer;
   text-decoration: none;
   border: 1px solid var(--gold);
@@ -591,78 +549,129 @@ section {
   font-weight: 500;
 }
 .btn-primary {
-  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  background: var(--gold);
   color: #fff;
-  text-shadow: 0 1px 0 rgba(107, 31, 42, 0.25);
-  box-shadow: 0 4px 14px rgba(184, 134, 11, 0.3);
 }
 .btn-primary:hover {
-  box-shadow: 0 6px 20px rgba(184, 134, 11, 0.5);
-  transform: translateY(-1px);
+  background: var(--maroon);
+  border-color: var(--maroon);
 }
 .btn-ghost {
-  background: var(--bg-card);
-  color: var(--maroon);
+  background: transparent;
+  color: var(--ink);
 }
 .btn-ghost:hover {
-  background: var(--bg-cream);
-  box-shadow: 0 4px 14px rgba(184, 134, 11, 0.25);
+  background: var(--bg-card);
+  color: var(--maroon);
+  border-color: var(--maroon-soft);
 }
 
 /* =========================================================
-   Closing / Dua
+   Venue photo block
    ========================================================= */
-.closing-frame {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 40px 20px 20px;
+.venue-photo {
+  margin: 60px auto 0;
+  max-width: 560px;
 }
-.closing-arabic {
-  font-family: var(--font-arabic);
-  font-size: clamp(20px, 4.5vw, 28px);
-  color: var(--maroon);
-  line-height: 1.9;
-  margin: 0 0 18px;
-}
-.closing-trans {
-  font-style: italic;
-  color: var(--ink);
-  font-size: 16px;
-  margin: 0 0 28px;
-}
-.closing-sig {
+.venue-heading {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+  font-weight: 400;
+}
+.venue-frame {
+  border: 1px solid var(--gold-soft);
+  padding: 10px;
+  background: var(--bg-card);
+  position: relative;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.venue-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.venue-placeholder {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold);
+  text-align: center;
+  padding: 24px;
+}
+.venue-placeholder p {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--ink);
   letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 4px 0 0;
+}
+.venue-placeholder small {
+  font-size: 12px;
   color: var(--ink-soft);
-  line-height: 1.9;
   margin: 0;
 }
-.closing-sig em {
-  color: var(--maroon);
-  font-style: italic;
+.venue-placeholder code {
+  background: var(--bg-cream);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 11px;
 }
+.venue-frame.no-photo .venue-placeholder { display: flex; }
+/* If image fails to load, the JS onerror handler adds .no-photo to .venue-frame */
+.venue-frame:has(img[src=""]) .venue-placeholder,
+.venue-frame:not(:has(img)) .venue-placeholder { display: flex; }
+/* Fallback: show placeholder when img has not loaded a real photo */
+.venue-frame img:not([src]),
+.venue-frame img[src=""] { display: none; }
+
+.venue-caption {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.venue-caption a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(176, 141, 60, 0.5);
+}
+.venue-caption a:hover { color: var(--maroon); }
+
+/* When the placeholder is showing, hide the broken img cleanly */
+.venue-frame:not(.no-photo) .venue-placeholder { display: none; }
 
 /* =========================================================
    Footer
    ========================================================= */
 .footer {
-  padding: 36px 0 48px;
+  padding: 48px 0 56px;
   text-align: center;
-  color: var(--gold);
+  color: var(--ink-soft);
   font-family: var(--font-display);
-  font-size: 12px;
-  letter-spacing: 0.3em;
-  opacity: 0.85;
+  font-size: 14px;
+  letter-spacing: 0.2em;
 }
+.footer svg { color: var(--gold); display: block; margin: 0 auto 12px; }
+.footer p { margin: 0; }
 
 /* =========================================================
    Reveal-on-scroll
    ========================================================= */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 1s ease, transform 1s ease;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
 }
 .reveal.is-visible {
   opacity: 1;
@@ -672,23 +681,24 @@ section {
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .particles span { animation: none; opacity: 0.3; }
-  .music-toggle.is-playing .icon-play { animation: none; }
 }
 
 /* =========================================================
    Mobile polish
    ========================================================= */
 @media (max-width: 540px) {
-  main { padding: 0 18px; }
-  section { padding: 48px 0; }
-  .hero { padding-top: 72px; }
-  .families { gap: 12px; }
+  main { padding: 0 22px; }
+  section { padding: 44px 0; }
+  .hero { padding-top: 56px; }
+  .families { gap: 8px; }
   .family { min-width: 100%; max-width: 100%; }
   .family-divider { display: none; }
   .countdown { gap: 8px; }
-  .cd-box { padding: 14px 4px; }
+  .cd-box { padding: 14px 4px 12px; }
   .music-label { display: none; }
-  .music-toggle { padding: 10px; }
+  .music-toggle { padding: 9px; }
   .actions { flex-direction: column; align-items: stretch; }
   .btn { justify-content: center; }
+  .verse-frame { padding: 48px 22px; }
+  .corner-sprig { width: 44px; height: 44px; }
 }

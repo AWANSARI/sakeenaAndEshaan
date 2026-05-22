@@ -3,143 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#1B0B0F" />
+  <meta name="theme-color" content="#FBF6EC" />
   <title>Sakeena & Eshaan — Wedding Invitation</title>
   <meta name="description" content="With the blessings of Allah, the Ansari & Syed families joyfully invite you to the wedding of Sakeena Fatima & Eshaan Arif Syed — June 12, 2026." />
 
-  <!-- Open Graph for nice link previews when shared -->
   <meta property="og:title" content="Sakeena & Eshaan — Wedding Invitation" />
-  <meta property="og:description" content="June 12, 2026 · Nikah after Asr · Reception at Kohinoor Banquet Hall" />
+  <meta property="og:description" content="June 12, 2026 · Nikah after Asr · Walima at Kohinoor Banquet Hall" />
   <meta property="og:type" content="website" />
 
-  <!-- Fonts: serif display + Arabic/Urdu calligraphy -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;600&family=Italiana&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Soft animated gold particles in the background -->
+  <!-- Floating gold particles -->
   <div class="particles" aria-hidden="true">
-    <span></span><span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span><span></span>
   </div>
 
-  <!-- Music toggle (top-right floating button) -->
+  <!-- Music toggle -->
   <button id="musicToggle" class="music-toggle" aria-label="Toggle background music" title="Play music">
-    <svg class="icon-play" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M9 18V5l12-2v13" />
       <circle cx="6" cy="18" r="3" />
       <circle cx="18" cy="16" r="3" />
     </svg>
     <span class="music-label">Music</span>
   </button>
-
-  <!-- Optional: drop a file at /music.mp3 to enable -->
   <audio id="bgMusic" loop preload="none">
     <source src="music.mp3" type="audio/mpeg" />
   </audio>
+
+  <!-- Reusable botanical SVG defs -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <!-- Single hand-drawn sprig (used at multiple sizes/rotations) -->
+      <symbol id="sprig" viewBox="0 0 120 60">
+        <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <!-- main stem -->
+          <path d="M2 30 C 30 28, 60 32, 118 30" />
+          <!-- leaves along stem (alternating) -->
+          <path d="M18 28 q -4 -8 -10 -10 q 2 8 10 10 Z" />
+          <path d="M26 32 q -4 8 -10 10 q 2 -8 10 -10 Z" />
+          <path d="M38 27 q -3 -9 -10 -11 q 1 9 10 11 Z" />
+          <path d="M48 33 q -3 9 -10 11 q 1 -9 10 -11 Z" />
+          <path d="M60 27 q -2 -10 -10 -12 q 0 10 10 12 Z" />
+          <path d="M72 33 q -2 10 -10 12 q 0 -10 10 -12 Z" />
+          <path d="M84 28 q -3 -9 -10 -11 q 1 9 10 11 Z" />
+          <path d="M94 32 q -3 9 -10 11 q 1 -9 10 -11 Z" />
+          <path d="M106 29 q -4 -7 -9 -9 q 1 8 9 9 Z" />
+          <!-- tiny bud at tip -->
+          <circle cx="116" cy="30" r="1.4" fill="currentColor" />
+        </g>
+      </symbol>
+
+      <!-- Tiny wildflower (5 petals) -->
+      <symbol id="bloom" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round">
+          <circle cx="12" cy="12" r="1.4" fill="currentColor"/>
+          <ellipse cx="12" cy="4.5" rx="2.2" ry="3.5"/>
+          <ellipse cx="19.5" cy="12" rx="3.5" ry="2.2"/>
+          <ellipse cx="12" cy="19.5" rx="2.2" ry="3.5"/>
+          <ellipse cx="4.5" cy="12" rx="3.5" ry="2.2"/>
+          <ellipse cx="6.5" cy="6.5" rx="2.4" ry="3" transform="rotate(-45 6.5 6.5)"/>
+        </g>
+      </symbol>
+
+      <!-- Centerpiece bouquet (two crossed sprigs + bloom) -->
+      <symbol id="bouquet" viewBox="0 0 80 60">
+        <g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+          <!-- left sprig -->
+          <path d="M40 56 C 28 42, 18 28, 8 12" />
+          <path d="M30 40 q -7 -3 -11 -8 q 4 6 11 8 Z" fill="currentColor" fill-opacity="0.15"/>
+          <path d="M24 30 q -7 -3 -10 -9 q 3 7 10 9 Z" fill="currentColor" fill-opacity="0.15"/>
+          <path d="M18 20 q -6 -2 -9 -8 q 2 7 9 8 Z" fill="currentColor" fill-opacity="0.15"/>
+          <path d="M34 46 q 4 -6 9 -8 q -3 7 -9 8 Z" fill="currentColor" fill-opacity="0.15"/>
+          <!-- right sprig -->
+          <path d="M40 56 C 52 42, 62 28, 72 12" />
+          <path d="M50 40 q 7 -3 11 -8 q -4 6 -11 8 Z" fill="currentColor" fill-opacity="0.15"/>
+          <path d="M56 30 q 7 -3 10 -9 q -3 7 -10 9 Z" fill="currentColor" fill-opacity="0.15"/>
+          <path d="M62 20 q 6 -2 9 -8 q -2 7 -9 8 Z" fill="currentColor" fill-opacity="0.15"/>
+          <path d="M46 46 q -4 -6 -9 -8 q 3 7 9 8 Z" fill="currentColor" fill-opacity="0.15"/>
+          <!-- central bloom -->
+          <circle cx="40" cy="56" r="2" fill="currentColor"/>
+          <circle cx="40" cy="6" r="1.2" fill="currentColor"/>
+          <!-- ribbon tie -->
+          <path d="M36 54 q 4 4 8 0" stroke-width="1.1"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
 
   <main>
 
     <!-- ======================== HERO ======================== -->
     <section class="hero reveal">
-      <div class="ornament ornament-top" aria-hidden="true">
-        <svg viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-            <!-- left & right horizontal lines -->
-            <path d="M0 40 H150" />
-            <path d="M250 40 H400" />
-            <!-- decorative arches -->
-            <path d="M150 40 q12 -12 24 0 q12 12 24 0 q12 -12 24 0 q12 12 24 0" opacity="0.6"/>
-            <path d="M150 40 q12 12 24 0 q12 -12 24 0 q12 12 24 0 q12 -12 24 0" opacity="0.6"/>
-            <!-- central floral medallion (no star) -->
-            <circle cx="200" cy="40" r="22" />
-            <circle cx="200" cy="40" r="14" />
-            <circle cx="200" cy="40" r="2.5" fill="currentColor"/>
-            <!-- 8 floral petals radiating from center -->
-            <path d="M200 22 q-4 8 0 14 q4 -6 0 -14 Z" fill="currentColor" opacity="0.85"/>
-            <path d="M200 58 q-4 -8 0 -14 q4 6 0 14 Z" fill="currentColor" opacity="0.85"/>
-            <path d="M182 40 q8 -4 14 0 q-6 4 -14 0 Z" fill="currentColor" opacity="0.85"/>
-            <path d="M218 40 q-8 -4 -14 0 q6 4 14 0 Z" fill="currentColor" opacity="0.85"/>
-            <path d="M187 27 q4 4 8 7 q-4 -1 -8 -3 Z" fill="currentColor" opacity="0.6"/>
-            <path d="M213 53 q-4 -4 -8 -7 q4 1 8 3 Z" fill="currentColor" opacity="0.6"/>
-            <path d="M213 27 q-4 4 -8 7 q4 -1 8 -3 Z" fill="currentColor" opacity="0.6"/>
-            <path d="M187 53 q4 -4 8 -7 q-4 1 -8 3 Z" fill="currentColor" opacity="0.6"/>
+
+      <!-- Top botanical crown -->
+      <div class="botanical botanical-crown" aria-hidden="true">
+        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Two arching sprigs meeting at top center -->
+            <path d="M100 16 C 80 22, 50 38, 28 70" />
+            <path d="M100 16 C 120 22, 150 38, 172 70" />
+            <!-- bloom at center top -->
+            <circle cx="100" cy="14" r="2.2" fill="currentColor"/>
+            <circle cx="100" cy="14" r="4" />
+            <!-- leaves on left -->
+            <path d="M72 30 q -7 -3 -11 -8 q 4 6 11 8 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M58 42 q -8 -3 -12 -8 q 4 6 12 8 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M44 56 q -8 -2 -12 -8 q 4 6 12 8 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M85 24 q 4 -7 4 -12 q -7 5 -4 12 Z" fill="currentColor" fill-opacity="0.2"/>
+            <!-- leaves on right -->
+            <path d="M128 30 q 7 -3 11 -8 q -4 6 -11 8 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M142 42 q 8 -3 12 -8 q -4 6 -12 8 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M156 56 q 8 -2 12 -8 q -4 6 -12 8 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M115 24 q -4 -7 -4 -12 q 7 5 4 12 Z" fill="currentColor" fill-opacity="0.2"/>
           </g>
         </svg>
       </div>
 
       <p class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-      <p class="bismillah-trans">In the name of Allah, the Most Gracious, the Most Merciful</p>
+      <p class="bismillah-trans"><em>In the name of Allah, the Most Gracious, the Most Merciful</em></p>
 
       <p class="eyebrow">Together with their families</p>
 
       <div class="couple">
         <div class="name-block">
           <span class="urdu" lang="ur" dir="rtl">سکینہ فاطمہ</span>
-          <h1 class="name-en">Sakeena Fatima</h1>
+          <h1 class="name-en">Sakeena <em>Fatima</em></h1>
         </div>
 
         <div class="amp" aria-hidden="true">
-          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
-              <circle cx="30" cy="30" r="22" />
-              <circle cx="30" cy="30" r="14" />
-              <circle cx="30" cy="30" r="2.5" fill="currentColor"/>
-              <!-- Four ornate floral petals -->
-              <path d="M30 12 q-5 8 0 16 q5 -8 0 -16 Z" fill="currentColor" opacity="0.85"/>
-              <path d="M30 48 q-5 -8 0 -16 q5 8 0 16 Z" fill="currentColor" opacity="0.85"/>
-              <path d="M12 30 q8 -5 16 0 q-8 5 -16 0 Z" fill="currentColor" opacity="0.85"/>
-              <path d="M48 30 q-8 -5 -16 0 q8 5 16 0 Z" fill="currentColor" opacity="0.85"/>
-              <!-- Diagonal smaller leaves -->
-              <path d="M17 17 q6 3 10 7 q-4 -1 -10 -7 Z" fill="currentColor" opacity="0.55"/>
-              <path d="M43 43 q-6 -3 -10 -7 q4 1 10 7 Z" fill="currentColor" opacity="0.55"/>
-              <path d="M43 17 q-6 3 -10 7 q4 -1 10 -7 Z" fill="currentColor" opacity="0.55"/>
-              <path d="M17 43 q6 -3 10 -7 q-4 1 -10 7 Z" fill="currentColor" opacity="0.55"/>
-            </g>
+          <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+            <use href="#sprig" x="0" y="-10" />
+            <text x="60" y="26" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="22" fill="currentColor">&amp;</text>
           </svg>
         </div>
 
         <div class="name-block">
           <span class="urdu" lang="ur" dir="rtl">إيشان عارف سيد</span>
-          <h1 class="name-en">Eshaan Arif Syed</h1>
+          <h1 class="name-en">Eshaan Arif <em>Syed</em></h1>
         </div>
       </div>
 
-      <p class="hero-date">are getting married</p>
-      <p class="hero-date-big">12<span>·</span>06<span>·</span>2026</p>
+      <p class="hero-date"><em>are getting married</em></p>
+      <p class="hero-date-big">12 · 06 · 2026</p>
 
-      <div class="ornament ornament-bottom" aria-hidden="true">
-        <svg viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-            <path d="M0 40 H150" />
-            <path d="M250 40 H400" />
-            <path d="M150 40 q12 -12 24 0 q12 12 24 0 q12 -12 24 0 q12 12 24 0" opacity="0.6"/>
-            <path d="M150 40 q12 12 24 0 q12 -12 24 0 q12 12 24 0 q12 -12 24 0" opacity="0.6"/>
-            <circle cx="200" cy="40" r="22" />
-            <circle cx="200" cy="40" r="14" />
-            <circle cx="200" cy="40" r="2.5" fill="currentColor"/>
-            <path d="M200 22 q-4 8 0 14 q4 -6 0 -14 Z" fill="currentColor" opacity="0.85"/>
-            <path d="M200 58 q-4 -8 0 -14 q4 6 0 14 Z" fill="currentColor" opacity="0.85"/>
-            <path d="M182 40 q8 -4 14 0 q-6 4 -14 0 Z" fill="currentColor" opacity="0.85"/>
-            <path d="M218 40 q-8 -4 -14 0 q6 4 14 0 Z" fill="currentColor" opacity="0.85"/>
-            <path d="M187 27 q4 4 8 7 q-4 -1 -8 -3 Z" fill="currentColor" opacity="0.6"/>
-            <path d="M213 53 q-4 -4 -8 -7 q4 1 8 3 Z" fill="currentColor" opacity="0.6"/>
-            <path d="M213 27 q-4 4 -8 7 q4 -1 8 -3 Z" fill="currentColor" opacity="0.6"/>
-            <path d="M187 53 q4 -4 8 -7 q-4 1 -8 3 Z" fill="currentColor" opacity="0.6"/>
+      <!-- Bottom mirror crown -->
+      <div class="botanical botanical-crown botanical-flip" aria-hidden="true">
+        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M100 16 C 80 22, 50 38, 28 70" />
+            <path d="M100 16 C 120 22, 150 38, 172 70" />
+            <circle cx="100" cy="14" r="2.2" fill="currentColor"/>
+            <circle cx="100" cy="14" r="4" />
+            <path d="M72 30 q -7 -3 -11 -8 q 4 6 11 8 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M58 42 q -8 -3 -12 -8 q 4 6 12 8 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M44 56 q -8 -2 -12 -8 q 4 6 12 8 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M85 24 q 4 -7 4 -12 q -7 5 -4 12 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M128 30 q 7 -3 11 -8 q -4 6 -11 8 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M142 42 q 8 -3 12 -8 q -4 6 -12 8 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M156 56 q 8 -2 12 -8 q -4 6 -12 8 Z" fill="currentColor" fill-opacity="0.2"/>
+            <path d="M115 24 q -4 -7 -4 -12 q 7 5 4 12 Z" fill="currentColor" fill-opacity="0.2"/>
           </g>
         </svg>
       </div>
-    </section>
 
-    <!-- ======================== COUNTDOWN ======================== -->
-    <section class="countdown-wrap reveal">
-      <h2 class="section-title">Counting Down to Our Day</h2>
-      <div id="countdown" class="countdown" aria-live="polite">
+      <!-- COUNTDOWN -->
+      <div class="countdown" aria-live="polite">
         <div class="cd-box"><span class="cd-num" id="cd-days">--</span><span class="cd-label">Days</span></div>
         <div class="cd-box"><span class="cd-num" id="cd-hours">--</span><span class="cd-label">Hours</span></div>
         <div class="cd-box"><span class="cd-num" id="cd-mins">--</span><span class="cd-label">Minutes</span></div>
@@ -147,27 +183,82 @@
       </div>
     </section>
 
+    <!-- Section divider: line + sprig -->
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+          <path d="M0 15 H 75" opacity="0.6"/>
+          <path d="M125 15 H 200" opacity="0.6"/>
+          <use href="#bloom" x="88" y="3" width="24" height="24"/>
+        </g>
+      </svg>
+    </div>
+
     <!-- ======================== QURANIC VERSE ======================== -->
     <section class="verse reveal">
       <div class="verse-frame">
+        <!-- Corner sprigs -->
+        <svg class="corner-sprig corner-tl" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4 C 18 12, 32 26, 52 52" />
+            <path d="M14 14 q -3 -8 -10 -10 q 2 8 10 10 Z" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M24 24 q 6 -3 11 0 q -6 4 -11 0 Z" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M36 36 q -8 -2 -10 -9 q 5 6 10 9 Z" fill="currentColor" fill-opacity="0.15"/>
+          </g>
+        </svg>
+        <svg class="corner-sprig corner-tr" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M56 4 C 42 12, 28 26, 8 52" />
+            <path d="M46 14 q 3 -8 10 -10 q -2 8 -10 10 Z" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M36 24 q -6 -3 -11 0 q 6 4 11 0 Z" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M24 36 q 8 -2 10 -9 q -5 6 -10 9 Z" fill="currentColor" fill-opacity="0.15"/>
+          </g>
+        </svg>
+        <svg class="corner-sprig corner-bl" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 56 C 18 48, 32 34, 52 8" />
+            <path d="M14 46 q -3 8 -10 10 q 2 -8 10 -10 Z" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M24 36 q 6 3 11 0 q -6 -4 -11 0 Z" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M36 24 q -8 2 -10 9 q 5 -6 10 -9 Z" fill="currentColor" fill-opacity="0.15"/>
+          </g>
+        </svg>
+        <svg class="corner-sprig corner-br" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M56 56 C 42 48, 28 34, 8 8" />
+            <path d="M46 46 q 3 8 10 10 q -2 -8 -10 -10 Z" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M36 36 q -6 3 -11 0 q 6 -4 11 0 Z" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M24 24 q 8 2 10 9 q -5 -6 -10 -9 Z" fill="currentColor" fill-opacity="0.15"/>
+          </g>
+        </svg>
+
         <p class="arabic" lang="ar" dir="rtl">
           وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
           وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
         </p>
         <p class="verse-translation">
-          "And of His signs is that He created for you from yourselves mates that you may find tranquility in them;
-          and He placed between you affection and mercy. Indeed in that are signs for a people who give thought."
+          <em>"And of His signs is that He created for you from yourselves mates that you may find tranquility in them;
+          and He placed between you affection and mercy. Indeed in that are signs for a people who give thought."</em>
         </p>
-        <p class="verse-citation">— Qur'an, Surah Ar-Rum 30:21</p>
+        <p class="verse-citation">Qur'an &middot; Surah Ar-Rum 30:21</p>
       </div>
     </section>
 
-    <!-- ======================== INVITATION FROM FAMILIES ======================== -->
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+          <path d="M0 15 H 75" opacity="0.6"/>
+          <path d="M125 15 H 200" opacity="0.6"/>
+          <use href="#bloom" x="88" y="3" width="24" height="24"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- ======================== INVITATION ======================== -->
     <section class="invitation reveal">
       <h2 class="section-title">An Invitation</h2>
 
       <p class="invite-body">
-        With hearts full of gratitude to Allah <span class="swt">ﷻ</span>, and joy beyond words,
+        <em>With hearts full of gratitude to Allah <span class="swt">ﷻ</span>, and joy beyond words,</em>
       </p>
 
       <div class="families">
@@ -177,11 +268,10 @@
         </div>
 
         <div class="family-divider" aria-hidden="true">
-          <svg viewBox="0 0 30 120" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" stroke="currentColor" stroke-width="1">
-              <path d="M15 0 V120" />
-              <circle cx="15" cy="60" r="6" />
-              <circle cx="15" cy="60" r="10" />
+          <svg viewBox="0 0 30 100" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round">
+              <path d="M15 8 V 92" opacity="0.5"/>
+              <use href="#bloom" x="3" y="38" width="24" height="24"/>
             </g>
           </svg>
         </div>
@@ -198,60 +288,66 @@
 
       <p class="invite-couple">
         <span lang="ur" dir="rtl">سکینہ فاطمہ</span>
-        <span class="invite-amp">to</span>
+        <span class="invite-amp"><em>to</em></span>
         <span lang="ur" dir="rtl">إيشان عارف سيد</span>
       </p>
-      <p class="invite-couple-en">Sakeena Fatima &nbsp;·&nbsp; Eshaan Arif Syed</p>
+      <p class="invite-couple-en">Sakeena Fatima &nbsp;&middot;&nbsp; Eshaan Arif Syed</p>
     </section>
+
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+          <path d="M0 15 H 75" opacity="0.6"/>
+          <path d="M125 15 H 200" opacity="0.6"/>
+          <use href="#bloom" x="88" y="3" width="24" height="24"/>
+        </g>
+      </svg>
+    </div>
 
     <!-- ======================== EVENTS ======================== -->
     <section class="events reveal">
       <h2 class="section-title">The Celebrations</h2>
-      <p class="events-date">Friday, the Twelfth of June, Two Thousand &amp; Twenty-Six</p>
+      <p class="events-date"><em>Friday, the Twelfth of June, Two Thousand &amp; Twenty-Six</em></p>
 
       <div class="event-cards">
-
-        <!-- Nikah card -->
         <article class="event-card">
-          <div class="event-corner event-corner-tl" aria-hidden="true"></div>
-          <div class="event-corner event-corner-tr" aria-hidden="true"></div>
-          <div class="event-corner event-corner-bl" aria-hidden="true"></div>
-          <div class="event-corner event-corner-br" aria-hidden="true"></div>
-
+          <svg class="card-flourish" viewBox="0 0 80 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round">
+              <path d="M2 15 H 32" opacity="0.6"/>
+              <path d="M48 15 H 78" opacity="0.6"/>
+              <use href="#bloom" x="32" y="3" width="16" height="16"/>
+            </g>
+          </svg>
           <p class="event-arabic" lang="ar" dir="rtl">النِّكَاح</p>
           <h3 class="event-name">Nikah Ceremony</h3>
           <p class="event-meta"><strong>After Asr Prayer</strong></p>
-          <p class="event-meta event-time">Approx. 6:30 PM</p>
-
+          <p class="event-meta event-time"><em>Approx. 6:30 PM</em></p>
           <div class="event-divider" aria-hidden="true"></div>
-
           <p class="event-venue">[Masjid Name]</p>
-          <p class="event-address">details to follow</p>
+          <p class="event-address"><em>details to follow</em></p>
         </article>
 
-        <!-- Reception card -->
         <article class="event-card">
-          <div class="event-corner event-corner-tl" aria-hidden="true"></div>
-          <div class="event-corner event-corner-tr" aria-hidden="true"></div>
-          <div class="event-corner event-corner-bl" aria-hidden="true"></div>
-          <div class="event-corner event-corner-br" aria-hidden="true"></div>
-
+          <svg class="card-flourish" viewBox="0 0 80 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round">
+              <path d="M2 15 H 32" opacity="0.6"/>
+              <path d="M48 15 H 78" opacity="0.6"/>
+              <use href="#bloom" x="32" y="3" width="16" height="16"/>
+            </g>
+          </svg>
           <p class="event-arabic" lang="ar" dir="rtl">الوَلِيمَة</p>
           <h3 class="event-name">Walima Reception</h3>
           <p class="event-meta"><strong>8:00 PM onwards</strong></p>
-          <p class="event-meta event-time">Dinner &amp; Celebration</p>
-
+          <p class="event-meta event-time"><em>Dinner &amp; Celebration</em></p>
           <div class="event-divider" aria-hidden="true"></div>
-
           <p class="event-venue">Kohinoor Banquet Hall</p>
           <a class="event-address link" href="https://kohinoorbanquet.com/" target="_blank" rel="noopener noreferrer">kohinoorbanquet.com</a>
         </article>
       </div>
 
-      <!-- Action buttons -->
       <div class="actions">
         <button id="addToCal" class="btn btn-primary" type="button">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="3" y="4" width="18" height="18" rx="2" />
             <line x1="16" y1="2" x2="16" y2="6" />
             <line x1="8" y1="2" x2="8" y2="6" />
@@ -259,33 +355,50 @@
           </svg>
           Add to Calendar
         </button>
-
         <a class="btn btn-ghost" href="https://maps.app.goo.gl/YTYjiBimg1Jiwysb7" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
             <circle cx="12" cy="10" r="3" />
           </svg>
           Get Directions
         </a>
       </div>
-    </section>
 
-    <!-- ======================== CLOSING / DUA ======================== -->
-    <section class="closing reveal">
-      <div class="closing-frame">
-        <p class="closing-arabic" lang="ar" dir="rtl">بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
-        <p class="closing-trans">
-          "May Allah bless you, and shower His blessings upon you, and unite you both in goodness."
-        </p>
-        <p class="closing-sig">
-          Your presence and prayers are our greatest gift.<br/>
-          <em>— The Ansari &amp; Syed Families</em>
+      <!-- VENUE PHOTO BLOCK -->
+      <div class="venue-photo">
+        <h3 class="venue-heading"><em>The Venue</em></h3>
+        <div class="venue-frame">
+          <!-- Drop a venue.jpg in the folder to replace this placeholder -->
+          <img src="venue.jpg" alt="Kohinoor Banquet Hall" onerror="this.style.display='none';this.parentElement.classList.add('no-photo');" />
+          <div class="venue-placeholder">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="64" height="64" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M50 20 L20 45 V 80 H 80 V 45 Z" />
+                <path d="M40 80 V 60 H 60 V 80" />
+                <path d="M30 55 H 38 M 62 55 H 70" />
+                <path d="M50 8 V 22" />
+                <circle cx="50" cy="6" r="2"/>
+              </g>
+            </svg>
+            <p>Kohinoor Banquet Hall</p>
+            <small><em>add <code>venue.jpg</code> to display photo</em></small>
+          </div>
+        </div>
+        <p class="venue-caption">
+          <a href="https://kohinoorbanquet.com/" target="_blank" rel="noopener noreferrer">kohinoorbanquet.com</a>
         </p>
       </div>
     </section>
 
     <footer class="footer">
-      <p>Sakeena &amp; Eshaan · 12 · 06 · 2026</p>
+      <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg" width="180" height="24" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round">
+          <path d="M0 15 H 75" opacity="0.5"/>
+          <path d="M125 15 H 200" opacity="0.5"/>
+          <use href="#bloom" x="88" y="3" width="24" height="24"/>
+        </g>
+      </svg>
+      <p>Sakeena <em>&amp;</em> Eshaan &nbsp;&middot;&nbsp; 12 · 06 · 2026</p>
     </footer>
 
   </main>
